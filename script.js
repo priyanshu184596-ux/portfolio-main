@@ -304,7 +304,10 @@ contactForm?.addEventListener("submit", async (e) => {
         throw new Error(result.error || "Unable to send your message.");
       }
 
-      submitBtn.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
+      submitBtn.innerHTML =
+        result.emailSent === false
+          ? 'Message Saved! <i class="fas fa-check"></i>'
+          : 'Message Sent! <i class="fas fa-check"></i>';
       contactForm.reset();
     } catch (error) {
       submitBtn.innerHTML =
